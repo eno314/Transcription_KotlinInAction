@@ -1,11 +1,14 @@
 package seven
 
 import java.math.BigDecimal
+import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val rect = Rectangle(Point(10, 20), Point(50, 50))
-    println(Point(20, 30) in rect)
-    println(Point(5, 5) in rect)
+    val now = LocalDate.now()
+    // 現在から10日間のレンジを作る
+    val vacation = now..now.plusDays(10)
+    // 指定した日付がレンジに含まれるかを検証する
+    println(now.plusWeeks(1) in vacation)
 }
 
 operator fun Char.times(count: Int): String {
@@ -13,5 +16,3 @@ operator fun Char.times(count: Int): String {
 }
 
 operator fun BigDecimal.inc() = this + BigDecimal.ONE
-
-operator fun <T: Comparable<T>> T.rangeTo(that: T): ClosedRange<T>
