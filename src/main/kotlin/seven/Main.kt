@@ -1,14 +1,11 @@
 package seven
 
 import java.math.BigDecimal
-import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val now = LocalDate.now()
-    // 現在から10日間のレンジを作る
-    val vacation = now..now.plusDays(10)
-    // 指定した日付がレンジに含まれるかを検証する
-    println(now.plusWeeks(1) in vacation)
+    val n = 9
+    // 0..n + 1と書けるが、括弧がある方が明確
+    println(0..(n + 1))
 }
 
 operator fun Char.times(count: Int): String {
