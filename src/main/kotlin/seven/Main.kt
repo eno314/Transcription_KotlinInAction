@@ -1,10 +1,9 @@
 package seven
 
 fun main(args: Array<String>) {
-    var point = Point(1, 2)
-    point += Point(3, 4)
-
-    println(point)
+    val numbers = ArrayList<Int>()
+    numbers += 42
+    println(numbers[0])
 }
 
 operator fun Char.times(count: Int): String {
