@@ -3,9 +3,9 @@ package seven
 import java.math.BigDecimal
 
 fun main(args: Array<String>) {
-    println(Point(10, 20) == Point(10, 20))
-    println(Point(10, 20) != Point(5, 5))
-    println(null == Point(1, 2))
+    val p1 = Person("Alice", "Smith")
+    val p2 = Person("Bob", "Johnson")
+    println(p1 < p2)
 }
 
 operator fun Char.times(count: Int): String {
