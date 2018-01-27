@@ -1,16 +1,6 @@
 package seven
 
-class Point(val x: Int, val y: Int) {
-    // Anyに定義されているequalsメソッドをオーバーライド
-    override fun equals(obj: Any?): Boolean {
-        // 最適化 : 引数がthisと同じオブジェクトかどうかを検証
-        if (obj === this) return true
-        // 引数の型を検証
-        if (obj !is Point) return false
-        // スマートキャストを使って、Pointのxとyのプロパティにアクセス
-        return obj.x == x && obj.y == y
-    }
-}
+data class Point(val x: Int, val y: Int)
 
 operator fun Point.plus(other: Point): Point {
     return Point(x + other.x, y + other.y)
@@ -24,4 +14,14 @@ operator fun Point.times(scale: Double): Point {
 operator fun Point.unaryMinus(): Point {
     // 点の座標の符号を反転して返す
     return Point(-x, -y)
+}
+
+// getと名付けられた演算子関数を定義する
+operator fun Point.get(index: Int): Int {
+    return when (index) {
+    // indexに対応した座標を取得する
+        0 -> x
+        1 -> y
+        else -> throw IndexOutOfBoundsException("Invalid coordinate $index")
+    }
 }

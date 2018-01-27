@@ -3,11 +3,8 @@ package seven
 import java.math.BigDecimal
 
 fun main(args: Array<String>) {
-    val mutableMap = mutableMapOf("hoge" to "fuga")
-    val key = "hoge"
-    val newValue = "piyo"
-    mutableMap[key] = newValue
-    println(mutableMap)
+    val p = Point(10, 20)
+    println(p[1])
 }
 
 operator fun Char.times(count: Int): String {
