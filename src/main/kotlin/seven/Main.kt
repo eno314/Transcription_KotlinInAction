@@ -3,8 +3,9 @@ package seven
 import java.math.BigDecimal
 
 fun main(args: Array<String>) {
-    val p = Point(10, 20)
-    println(p[1])
+    val p = MutablePoint(10, 20)
+    p[1] = 42
+    println(p)
 }
 
 operator fun Char.times(count: Int): String {
