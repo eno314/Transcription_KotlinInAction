@@ -3,9 +3,9 @@ package seven
 import java.math.BigDecimal
 
 fun main(args: Array<String>) {
-    val n = 9
-    // レンジからメソッドを呼び出す場合は丸括弧で囲む
-    (0..n).forEach { print(it) }
+    for (c in "abc") {
+        println(c)
+    }
 }
 
 operator fun Char.times(count: Int): String {
@@ -13,3 +13,6 @@ operator fun Char.times(count: Int): String {
 }
 
 operator fun BigDecimal.inc() = this + BigDecimal.ONE
+
+// このライブラリ関数は、文字列を繰り返し処理できる
+// operator fun CharSequence.iterator(): CharIterator
