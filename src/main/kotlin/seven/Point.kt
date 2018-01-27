@@ -1,6 +1,16 @@
 package seven
 
-data class Point(val x: Int, val y: Int)
+class Point(val x: Int, val y: Int) {
+    // Anyに定義されているequalsメソッドをオーバーライド
+    override fun equals(obj: Any?): Boolean {
+        // 最適化 : 引数がthisと同じオブジェクトかどうかを検証
+        if (obj === this) return true
+        // 引数の型を検証
+        if (obj !is Point) return false
+        // スマートキャストを使って、Pointのxとyのプロパティにアクセス
+        return obj.x == x && obj.y == y
+    }
+}
 
 operator fun Point.plus(other: Point): Point {
     return Point(x + other.x, y + other.y)

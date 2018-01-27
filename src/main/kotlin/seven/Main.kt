@@ -3,12 +3,9 @@ package seven
 import java.math.BigDecimal
 
 fun main(args: Array<String>) {
-    var bd = BigDecimal.ZERO
-    // 1つめのprintlnが実行された後でインクリメントする
-    println(bd++)
-
-    // 2つめのprintlnが実行される前にインクリメントする
-    println(++bd)
+    println(Point(10, 20) == Point(10, 20))
+    println(Point(10, 20) != Point(5, 5))
+    println(null == Point(1, 2))
 }
 
 operator fun Char.times(count: Int): String {
