@@ -13,3 +13,5 @@ operator fun Char.times(count: Int): String {
 }
 
 operator fun BigDecimal.inc() = this + BigDecimal.ONE
+
+operator fun <T: Comparable<T>> T.rangeTo(that: T): ClosedRange<T>
