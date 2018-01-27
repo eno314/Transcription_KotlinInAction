@@ -4,8 +4,8 @@ import java.math.BigDecimal
 
 fun main(args: Array<String>) {
     val n = 9
-    // 0..n + 1と書けるが、括弧がある方が明確
-    println(0..(n + 1))
+    // レンジからメソッドを呼び出す場合は丸括弧で囲む
+    (0..n).forEach { print(it) }
 }
 
 operator fun Char.times(count: Int): String {
