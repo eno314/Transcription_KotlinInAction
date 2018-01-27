@@ -9,3 +9,7 @@ fun main(args: Array<String>) {
 operator fun Char.times(count: Int): String {
     return toString().repeat(count)
 }
+
+operator fun <T> MutableCollection<T>.plusAssign(element: T) {
+    this.add(element)
+}
