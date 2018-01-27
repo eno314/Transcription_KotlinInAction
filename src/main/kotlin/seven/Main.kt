@@ -1,15 +1,17 @@
 package seven
 
 fun main(args: Array<String>) {
-    val numbers = ArrayList<Int>()
-    numbers += 42
-    println(numbers[0])
+    val list = arrayListOf(1, 2)
+    // += はlistを変更する
+    list += 3
+
+    // + は全ての要素を持った新しいリストを返す
+    val newList = list + listOf(4, 5)
+
+    println(list)
+    println(newList)
 }
 
 operator fun Char.times(count: Int): String {
     return toString().repeat(count)
-}
-
-operator fun <T> MutableCollection<T>.plusAssign(element: T) {
-    this.add(element)
 }
