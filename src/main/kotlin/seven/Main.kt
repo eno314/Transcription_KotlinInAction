@@ -4,9 +4,8 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val (name, ext) = splitFilename("example.kt")
-    println(name)
-    println(ext)
+    val map = mapOf("Oracle" to "Java", "JetBrain" to "Kotlin")
+    printEntries(map)
 }
 
 operator fun Char.times(count: Int): String {
@@ -29,3 +28,10 @@ operator fun ClosedRange<LocalDate>.iterator(): Iterator<LocalDate> =
                 current = plusDays(1)
             }
         }
+
+fun printEntries(map: Map<String, String>) {
+    // ループ内での分解宣言
+    for ((key, value) in map) {
+        println("$key -> $value")
+    }
+}
