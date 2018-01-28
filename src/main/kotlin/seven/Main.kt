@@ -30,8 +30,9 @@ operator fun ClosedRange<LocalDate>.iterator(): Iterator<LocalDate> =
         }
 
 fun printEntries(map: Map<String, String>) {
-    // ループ内での分解宣言
-    for ((key, value) in map) {
+    for (entry in map.entries) {
+        val key = entry.component1()
+        val value = entry.component2()
         println("$key -> $value")
     }
 }
