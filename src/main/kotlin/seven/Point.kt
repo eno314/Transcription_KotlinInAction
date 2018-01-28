@@ -1,6 +1,9 @@
 package seven
 
-data class Point(val x: Int, val y: Int)
+class Point(val x: Int, val y: Int) {
+    operator fun component1() = x
+    operator fun component2() = y
+}
 
 operator fun Point.plus(other: Point): Point {
     return Point(x + other.x, y + other.y)
