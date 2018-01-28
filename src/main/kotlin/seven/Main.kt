@@ -4,12 +4,12 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val newYear = LocalDate.ofYearDay(2017, 1)
-    val daysOff = newYear.minusDays(1)..newYear
-    // 対応するiterator関数が利用できるので、daysOff上で繰り返し処理を行う
-    for (dayOff in daysOff) {
-        println(dayOff)
-    }
+    val p = Point(10, 20)
+    // 変数xとyを宣言し、pの構成要素を使って初期化する
+    val (x, y) = p
+
+    println(x)
+    println(y)
 }
 
 operator fun Char.times(count: Int): String {
