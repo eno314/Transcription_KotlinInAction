@@ -4,12 +4,9 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val p = Point(10, 20)
-    // 変数xとyを宣言し、pの構成要素を使って初期化する
-    val (x, y) = p
-
-    println(x)
-    println(y)
+    val (name, ext) = splitFilename("example.kt")
+    println(name)
+    println(ext)
 }
 
 operator fun Char.times(count: Int): String {
