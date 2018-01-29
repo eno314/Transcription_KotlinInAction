@@ -2,19 +2,17 @@ package seven
 
 class Person(val name: String, age: Int, salary: Int) : PropertyChangeAware() {
 
-    var age: Int = age
-        set(newValue) {
-            // 「field」識別子でプロパティのバッキングフィールドにアクセス
-            val oldValue = field
-            field = newValue
-            // プロパティの値の変更についてリスナに通知
-            changeSupport.firePropertyChange("age", oldValue, newValue)
+    val _age = ObservableProperty("age", age, changeSupport)
+    var age: Int
+        get() = _age.getValue()
+        set(value) {
+            _age.setValue(value)
         }
 
-    var salary: Int = salary
-        set(newValue) {
-            val oldValue = field
-            field = newValue
-            changeSupport.firePropertyChange("salary", oldValue, newValue)
+    val _salary = ObservableProperty("salary", salary, changeSupport)
+    var salary: Int
+        get() = _salary.getValue()
+        set(value) {
+            _salary.setValue(value)
         }
 }
