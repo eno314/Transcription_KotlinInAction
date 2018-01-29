@@ -17,15 +17,17 @@ fun <T> Collection<T>.joinToString(
         prefix: String = "",
         postfix: String = "",
         // ラムダをデフォルト値とする関数型引数を宣言する
-        transform: (T) -> String = { it.toString() }
+        transform: ((T) -> String)? = null
 ): String {
     val result = StringBuilder(prefix)
     for ((index, element) in this.withIndex()) {
         if (index > 0) {
             result.append(separator)
         }
-        // 引数transformに渡された関数を呼び出す
-        result.append(transform(element))
+        // 関数呼び出しに安全呼び出し構文を使う
+        // コールバックが指定されていない場合を扱うために、エルビス演算子を使う
+        val str = transform?.invoke(element) ?: element.toString()
+        result.append(str)
     }
     result.append(postfix)
     return result.toString()
