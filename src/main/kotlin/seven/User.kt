@@ -2,8 +2,8 @@ package seven
 
 /*
 object Users : IdTable() {
-    val name = varchar("name", lenght = 50).index()
-    val age = integer("age")
+    val name: Column<String> = varchar("name", lenght = 50).index()
+    val age: Column<Int> = integer("age")
 }
 
 // Userのそれぞれのインスタンスはテーブルの特定のエントリに対応
