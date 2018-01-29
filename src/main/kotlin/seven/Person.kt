@@ -1,15 +1,13 @@
 package seven
 
-import kotlin.properties.Delegates
-import kotlin.reflect.KProperty
+class Person {
+    private val _attributes = hashMapOf<String, String>()
 
-class Person(val name: String, age: Int, salary: Int) : PropertyChangeAware() {
-
-    private val observer = { prop: KProperty<*>, oldValue: Int, newValue: Int ->
-        changeSupport.firePropertyChange(prop.name, oldValue, newValue)
+    fun setAttribute(attrName: String, value: String) {
+        _attributes[attrName] = value
     }
 
-    var age: Int by Delegates.observable(age, observer)
-
-    var salary: Int by Delegates.observable(salary, observer)
+    // 手動でmapから属性を取り出すl
+    val name: String
+        get() = _attributes["name"]!!
 }
