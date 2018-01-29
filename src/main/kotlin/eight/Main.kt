@@ -1,15 +1,14 @@
 package eight
 
 fun main(args: Array<String>) {
-    val url = "http://kotl.in"
-    // APIで提供されている名前をラムダの引数名として使用可能
-    performRequest(url) { code, content ->
-        /* ... */
-    }
-    // また、それらは変更可能
-    performRequest(url) { code, page ->
-        /* ... */
-    }
+    twoAndTree { a, b -> a + b }
+    twoAndTree { a, b -> a * b }
+}
+
+// 関数型の引数宣言
+fun twoAndTree(operation: (Int, Int) -> Int) {
+    val result = operation(2, 3)
+    println("The result is $result")
 }
 
 fun performRequest(
