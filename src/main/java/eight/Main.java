@@ -1,18 +1,21 @@
 package eight;
 
-import kotlin.jvm.functions.Function1;
+import kotlin.Unit;
+import kotlin.collections.CollectionsKt;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String args[]) {
-        MainKt.processTheAnswer(
-                // Kotlinの関数型をJavaのコードから使う(Java8以前)
-                new Function1<Integer, Integer>() {
-                    @Override
-                    public Integer invoke(Integer number) {
-                        System.out.println(number);
-                        return number + 1;
-                    }
-                });
+        List<String> strings = new ArrayList();
+        strings.add("42");
+        // JavaのコードでKotlin標準ライブラリの関数を使用可能
+        CollectionsKt.forEach(strings, s -> {
+            System.out.println(s);
+            // Unit型の値を明示的に返す必要がある
+            return Unit.INSTANCE;
+        });
     }
 }
