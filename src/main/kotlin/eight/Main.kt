@@ -1,22 +1,31 @@
 package eight
 
 fun main(args: Array<String>) {
-    // predicateに引数としてラムダを渡す
-    println("ab1c".filter { it in 'a'..'z' })
+    val letters = listOf("Alpha", "Beta")
+    // デフォルトの変換関数を使用
+    println(letters.joinToString())
+    // ラムダを引数として渡す
+    println(letters.joinToString { it.toLowerCase() })
+    // ラムダを含むいくつかの引数を渡すために、名前付き引数構文を使用する
+    println(letters.joinToString(
+            separator = "! ", postfix = "! ", transform = { it.toUpperCase() }
+    ))
 }
 
 fun <T> Collection<T>.joinToString(
         separator: String = ", ",
         prefix: String = "",
-        postfix: String = ""
+        postfix: String = "",
+        // ラムダをデフォルト値とする関数型引数を宣言する
+        transform: (T) -> String = { it.toString() }
 ): String {
     val result = StringBuilder(prefix)
     for ((index, element) in this.withIndex()) {
         if (index > 0) {
             result.append(separator)
         }
-        // デフォルトのtoStringメソッドを使ってオブジェクトをStringへ変換
-        result.append(element)
+        // 引数transformに渡された関数を呼び出す
+        result.append(transform(element))
     }
     result.append(postfix)
     return result.toString()
