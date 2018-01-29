@@ -1,15 +1,8 @@
 package eight
 
 fun main(args: Array<String>) {
-    val letters = listOf("Alpha", "Beta")
-    // デフォルトの変換関数を使用
-    println(letters.joinToString())
-    // ラムダを引数として渡す
-    println(letters.joinToString { it.toLowerCase() })
-    // ラムダを含むいくつかの引数を渡すために、名前付き引数構文を使用する
-    println(letters.joinToString(
-            separator = "! ", postfix = "! ", transform = { it.toUpperCase() }
-    ))
+    val calculator = getShippingCostCalculator(Delivery.EXPEDITED)
+    println("Shipping costs ${calculator(Order(3))}")
 }
 
 fun <T> Collection<T>.joinToString(
