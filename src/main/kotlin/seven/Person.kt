@@ -1,8 +1,16 @@
 package seven
 
-class Person(val firstName: String, val lastName: String) : Comparable<Person> {
-    override fun compareTo(other: Person): Int {
-        // 与えられたコールバックを順番に評価し、値を比較
-        return compareValuesBy(this, other, Person::lastName, Person::firstName)
-    }
+class Person(val name: String) {
+    // _emailsプロパティにはemailsが委譲するデータを格納する
+    private var _emails: List<Email>? = null
+
+    val emails: List<Email>
+        get() {
+            if (_emails == null) {
+                // アクセス時にデータをロードする
+                _emails = loadEmails(this)
+            }
+            // 既にデータがロードされていたら、それを返す
+            return _emails!!
+        }
 }

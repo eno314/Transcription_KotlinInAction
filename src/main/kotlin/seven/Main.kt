@@ -4,8 +4,10 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 fun main(args: Array<String>) {
-    val map = mapOf("Oracle" to "Java", "JetBrain" to "Kotlin")
-    printEntries(map)
+    val p = Person("Alice")
+    // emailsは初回アクセス時にロードされる
+    p.emails
+    p.emails
 }
 
 operator fun Char.times(count: Int): String {
