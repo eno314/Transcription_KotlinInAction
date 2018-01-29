@@ -16,6 +16,10 @@ fun String.filter(predicate: (Char) -> Boolean): String {
     return sb.toString()
 }
 
+fun processTheAnswer(f: (Int) -> Int) {
+    println(f(42))
+}
+
 // 関数型の引数宣言
 fun twoAndTree(operation: (Int, Int) -> Int) {
     val result = operation(2, 3)
