@@ -1,8 +1,19 @@
 package eight
 
 fun main(args: Array<String>) {
-    twoAndTree { a, b -> a + b }
-    twoAndTree { a, b -> a * b }
+    // predicateに引数としてラムダを渡す
+    println("ab1c".filter { it in 'a'..'z' })
+}
+
+fun String.filter(predicate: (Char) -> Boolean): String {
+    val sb = StringBuilder()
+    for (index in 0 until length) {
+        val element = get(index)
+        if (predicate(element)) {
+            sb.append(element)
+        }
+    }
+    return sb.toString()
 }
 
 // 関数型の引数宣言
