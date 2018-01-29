@@ -7,7 +7,6 @@ class Person {
         _attributes[attrName] = value
     }
 
-    // 手動でmapから属性を取り出すl
-    val name: String
-        get() = _attributes["name"]!!
+    // mapを委譲プロパティとして使う
+    val name: String by _attributes
 }
