@@ -7,4 +7,6 @@ fun main(args: Array<String>) {
     val action: () -> Unit = { println(42) }
 
     var canReturnNull: (Int, Int) -> Int? = { x, y -> null }
+
+    var funOrNull: ((Int, Int) -> Int)? = null
 }
