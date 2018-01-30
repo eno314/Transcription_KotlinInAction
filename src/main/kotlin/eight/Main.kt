@@ -9,6 +9,12 @@ fun main(args: Array<String>) {
     }
 }
 
+/*
+fun <T, R> Sequence<T>.map(transform: (T) -> R): Sequence<R> {
+    return TransformingSequence(this, transform)
+}
+*/
+
 class LockOwner(val lock: Lock) {
     fun runUnderLock(body: () -> Unit) {
         // 関数型の変数は引数として渡される。ラムダではない
