@@ -4,7 +4,16 @@ import sun.misc.Lock
 
 
 fun main(args: Array<String>) {
-    foo(Lock())
+    LockOwner(Lock()).runUnderLock {
+        println("hoge")
+    }
+}
+
+class LockOwner(val lock: Lock) {
+    fun runUnderLock(body: () -> Unit) {
+        // 関数型の変数は引数として渡される。ラムダではない
+        synchronized(lock, body)
+    }
 }
 
 fun foo(l: Lock) {
