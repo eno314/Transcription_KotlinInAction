@@ -1,12 +1,22 @@
 package eight
 
+import sun.misc.Lock
+
+
 fun main(args: Array<String>) {
-    println(
-            log.averageDurationFor { it.os in setOf(OS.ANDROID, OS.IOS) }
-    )
-    println(
-            log.averageDurationFor { it.os == OS.IOS && it.path == "/signup" }
-    )
+    val l = Lock()
+    synchronized(l) {
+        println("hoge")
+    }
+}
+
+inline fun <T> synchronized(lock: Lock, action: () -> T): T {
+    lock.lock()
+    try {
+        return action()
+    } finally {
+        lock.unlock()
+    }
 }
 
 fun <T> Collection<T>.joinToString(
