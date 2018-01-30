@@ -2,11 +2,8 @@ package eight
 
 import sun.misc.Lock
 
-
 fun main(args: Array<String>) {
-    LockOwner(Lock()).runUnderLock {
-        println("hoge")
-    }
+    println(people.filter { it.age < 30 })
 }
 
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
