@@ -1,9 +1,15 @@
 package eight
 
-import sun.misc.Lock
+import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.ReentrantLock
+import kotlin.concurrent.withLock
 
 fun main(args: Array<String>) {
-    println(people.filter { it.age > 30 }.map(Person2::name))
+    val l: Lock = ReentrantLock()
+    l.withLock {
+        // このロックにより保護されているリソースにアクセスする
+        println("ほげ")
+    }
 }
 
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
