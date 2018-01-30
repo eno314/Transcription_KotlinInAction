@@ -1,7 +1,12 @@
 package eight
 
 fun main(args: Array<String>) {
-    println(averageMobileDuration)
+    println(
+            log.averageDurationFor { it.os in setOf(OS.ANDROID, OS.IOS) }
+    )
+    println(
+            log.averageDurationFor { it.os == OS.IOS && it.path == "/signup" }
+    )
 }
 
 fun <T> Collection<T>.joinToString(

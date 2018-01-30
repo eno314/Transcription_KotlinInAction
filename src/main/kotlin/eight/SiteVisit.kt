@@ -17,8 +17,8 @@ enum class OS {
 val log = listOf(
         SiteVisit("/", 34.0, OS.WINDOWS),
         SiteVisit("/", 22.0, OS.MAC),
-        SiteVisit("/", 12.0, OS.WINDOWS),
-        SiteVisit("/", 8.0, OS.IOS),
+        SiteVisit("/login", 12.0, OS.WINDOWS),
+        SiteVisit("/signup", 8.0, OS.IOS),
         SiteVisit("/", 16.3, OS.ANDROID)
 )
 
@@ -28,7 +28,7 @@ fun List<SiteVisit>.averageDurationFor(os: OS) =
                 .map(SiteVisit::duration)
                 .average()
 
-val averageMobileDuration = log
-        .filter { it.os in setOf(OS.IOS, OS.ANDROID) }
-        .map(SiteVisit::duration)
-        .average()
+fun List<SiteVisit>.averageDurationFor(predicate: (SiteVisit) -> Boolean) =
+        filter(predicate)
+                .map(SiteVisit::duration)
+                .average()
