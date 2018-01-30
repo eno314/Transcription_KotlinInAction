@@ -1,8 +1,7 @@
 package eight
 
 fun main(args: Array<String>) {
-    println(log.averageDurationFor(OS.WINDOWS))
-    println(log.averageDurationFor(OS.MAC))
+    println(averageMobileDuration)
 }
 
 fun <T> Collection<T>.joinToString(

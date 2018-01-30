@@ -27,3 +27,8 @@ fun List<SiteVisit>.averageDurationFor(os: OS) =
         filter { it.os == os }
                 .map(SiteVisit::duration)
                 .average()
+
+val averageMobileDuration = log
+        .filter { it.os in setOf(OS.IOS, OS.ANDROID) }
+        .map(SiteVisit::duration)
+        .average()
