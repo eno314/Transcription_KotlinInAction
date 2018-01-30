@@ -3,13 +3,7 @@ package eight
 import sun.misc.Lock
 
 fun main(args: Array<String>) {
-    val result = mutableListOf<Person2>()
-    for (person in people) {
-        if (person.age < 30) {
-            result.add(person)
-        }
-    }
-    println(result)
+    println(people.filter { it.age > 30 }.map(Person2::name))
 }
 
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
