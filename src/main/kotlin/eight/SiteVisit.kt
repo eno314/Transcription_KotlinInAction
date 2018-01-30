@@ -22,7 +22,8 @@ val log = listOf(
         SiteVisit("/", 16.3, OS.ANDROID)
 )
 
-val averageWindowsDuration = log
-        .filter { it.os == OS.WINDOWS }
-        .map(SiteVisit::duration)
-        .average()
+// 重複したコードを関数内に抽出
+fun List<SiteVisit>.averageDurationFor(os: OS) =
+        filter { it.os == os }
+                .map(SiteVisit::duration)
+                .average()
