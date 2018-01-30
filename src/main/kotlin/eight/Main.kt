@@ -4,10 +4,15 @@ import sun.misc.Lock
 
 
 fun main(args: Array<String>) {
-    val l = Lock()
+    foo(Lock())
+}
+
+fun foo(l: Lock) {
+    println("Before sync")
     synchronized(l) {
-        println("hoge")
+        println("Action")
     }
+    println("After sync")
 }
 
 inline fun <T> synchronized(lock: Lock, action: () -> T): T {
