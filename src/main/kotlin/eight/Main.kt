@@ -1,5 +1,7 @@
 package eight
 
+import java.io.BufferedReader
+import java.io.FileReader
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
@@ -9,6 +11,14 @@ fun main(args: Array<String>) {
     l.withLock {
         // このロックにより保護されているリソースにアクセスする
         println("ほげ")
+    }
+}
+
+fun readFirstLineFromFile(path: String): String {
+    // BufferedReaderを作成し、use関数を呼び出し、ファイルに対して操作を実行するためのラムダを渡す
+    BufferedReader(FileReader(path)).use { br ->
+        // 行を関数から返す
+        return br.readLine()
     }
 }
 
