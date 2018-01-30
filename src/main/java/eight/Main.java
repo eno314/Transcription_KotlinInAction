@@ -3,6 +3,9 @@ package eight;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,5 +20,11 @@ public class Main {
             // Unit型の値を明示的に返す必要がある
             return Unit.INSTANCE;
         });
+    }
+
+    private static String readFirstLineFromFile(String path) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            return br.readLine();
+        }
     }
 }
