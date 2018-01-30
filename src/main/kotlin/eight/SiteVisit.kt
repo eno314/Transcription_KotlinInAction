@@ -21,3 +21,8 @@ val log = listOf(
         SiteVisit("/", 8.0, OS.IOS),
         SiteVisit("/", 16.3, OS.ANDROID)
 )
+
+val averageWindowsDuration = log
+        .filter { it.os == OS.WINDOWS }
+        .map(SiteVisit::duration)
+        .average()

@@ -1,16 +1,7 @@
 package eight
 
 fun main(args: Array<String>) {
-    val contacts = listOf(
-            Person("Dmitry", "Jemerov", "123-4567"),
-            Person("Svetlana", "Isakova", null)
-    )
-    val contactListFilters = ContactListFilters().apply {
-        prefix = "Dm"
-        onlyWithPhoneNumber = true
-    }
-    // filterへの引数として、getPredicateによって返された関数を渡す
-    println(contacts.filter(contactListFilters.getPredicate()))
+    println(averageWindowsDuration)
 }
 
 fun <T> Collection<T>.joinToString(
