@@ -6,9 +6,7 @@ import java.util.concurrent.locks.Lock
 
 fun main(args: Array<String>) {
     println(
-            people.filter(fun(person): Boolean {
-                return person.age < 30
-            })
+            people.filter(fun(person) = person.age < 30)
     )
 }
 
