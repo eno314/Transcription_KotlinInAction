@@ -3,15 +3,9 @@ package eight
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.concurrent.locks.Lock
-import java.util.concurrent.locks.ReentrantLock
-import kotlin.concurrent.withLock
 
 fun main(args: Array<String>) {
-    val l: Lock = ReentrantLock()
-    l.withLock {
-        // このロックにより保護されているリソースにアクセスする
-        println("ほげ")
-    }
+    lookForAlice(people)
 }
 
 fun readFirstLineFromFile(path: String): String {
