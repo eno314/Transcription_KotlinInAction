@@ -5,12 +5,12 @@ data class Person2(val name: String, val age: Int)
 val people = listOf(Person2("Alice", 29), Person2("Bob", 31))
 
 fun lookForAlice(people: List<Person2>) {
-    people.forEach {
-        if (it.name == "Alice") {
-            // return@forEachはラムダ式からリターン
-            return@forEach
+    // ラムダの代わりに無名関数を使用する
+    people.forEach(fun(person) {
+        if (person.name == "Alice") {
+            // 最も近い関数（ここでは無名関数）を参照する
+            return
         }
-    }
-    // この行は常に出力される
-    println("Alice might be somewhere")
+        println("${person.name} is not Alice")
+    })
 }
