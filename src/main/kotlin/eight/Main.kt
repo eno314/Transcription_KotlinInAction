@@ -5,7 +5,15 @@ import java.io.FileReader
 import java.util.concurrent.locks.Lock
 
 fun main(args: Array<String>) {
-    lookForAlice(people)
+    // ラムダの暗黙的なレシーバはthis@sbを参照する
+    val string = StringBuilder().apply sb@ {
+        // thisはスコープ内で最も内側の暗黙のレシーバを参照する
+        listOf(1, 2, 3).apply {
+            // 全ての暗黙的なレシーバを参照でき、外部のレシーバには明示的なラベルを参照できる
+            this@sb.append(this.toString())
+        }
+    }.toString()
+    println(string)
 }
 
 fun readFirstLineFromFile(path: String): String {
