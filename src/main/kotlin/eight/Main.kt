@@ -5,7 +5,11 @@ import java.io.FileReader
 import java.util.concurrent.locks.Lock
 
 fun main(args: Array<String>) {
-    lookForAlice(people)
+    println(
+            people.filter(fun(person): Boolean {
+                return person.age < 30
+            })
+    )
 }
 
 fun readFirstLineFromFile(path: String): String {
