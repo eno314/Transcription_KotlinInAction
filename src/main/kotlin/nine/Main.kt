@@ -1,8 +1,12 @@
 package nine
 
 fun main(args: Array<String>) {
-    // この呼び出しでは、型パラメータTはIntであると推論される
     println(listOf(1, 2, 3, 4).penultimate)
+}
+
+class Hoge {
+    val <T> x: T = TODO()
+    // Error: Type parameter of a property must be used in its receiver type
 }
 
 // このジェネリック拡張プロパティは任意のリストで呼び出し可能
