@@ -1,12 +1,8 @@
 package nine
 
 fun main(args: Array<String>) {
-    println(listOf(1, 2, 3, 4).penultimate)
+    println(listOf(1, 2, 3).sum())
 }
-
-// Tは型パラメータ
-// : Numberは上限境界
-// fun <T : Number> List<T>.sum(): T
 
 // このジェネリック拡張プロパティは任意のリストで呼び出し可能
 val <T> List<T>.penultimate: T
