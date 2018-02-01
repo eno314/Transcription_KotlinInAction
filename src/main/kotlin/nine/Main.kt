@@ -1,8 +1,19 @@
 package nine
 
 fun main(args: Array<String>) {
-    // 文字列はアルファベット順に比較可能
-    println(max("kotlin", "java"))
+    val helloWorld = StringBuilder("Hello World")
+    ensureTrailingPeriod(helloWorld)
+    println(helloWorld)
+}
+
+fun <T> ensureTrailingPeriod(seq: T)
+        // 型パラメータ制約のリスト
+        where T : CharSequence, T : Appendable {
+    // CharSequenceインタフェースに対して定義された拡張関数の呼び出し
+    if (!seq.endsWith('.')) {
+        // Appendableインタフェースのメソッド呼び出し
+        seq.append('.')
+    }
 }
 
 // この関数の引数は比較可能な要素でなければならない
