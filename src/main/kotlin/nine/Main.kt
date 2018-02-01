@@ -1,7 +1,13 @@
 package nine
 
 fun main(args: Array<String>) {
-    println(oneHalf(3))
+    // 文字列はアルファベット順に比較可能
+    println(max("kotlin", "java"))
+}
+
+// この関数の引数は比較可能な要素でなければならない
+fun <T : Comparable<T>> max(first: T, second: T): T {
+    return if (first > second) first else second
 }
 
 // 型パラメータの上限境界としてNumberを指定
