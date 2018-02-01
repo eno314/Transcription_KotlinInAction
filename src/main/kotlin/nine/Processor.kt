@@ -1,8 +1,9 @@
 package nine
 
-class Processor<T> {
+// null非許容型上限境界の指定
+class Processor<T : Any> {
     fun process(value: T) {
-        // valueはnull許容なので、安全呼び出しを使う必要がある
-        value?.hashCode()
+        // 型Tのvalueは、この時点ではnull非許容である
+        value.hashCode()
     }
 }

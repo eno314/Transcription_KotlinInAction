@@ -1,10 +1,9 @@
 package nine
 
 fun main(args: Array<String>) {
-    // null許容型であるString?はTを置き換える
-    val nullableStringProcessor = Processor<String?>()
-    // 「value」引数として「null」を渡しているが、上手くコンパイルされる
-    nullableStringProcessor.process(null)
+    // val nullableStringProcessor = Processor<String?>()
+    // nullableStringProcessor.process(null)
+    // Error : Type argument is not within its bounds: should be subtype of 'Any'
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
