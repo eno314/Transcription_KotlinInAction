@@ -1,13 +1,9 @@
 package nine
 
 fun main(args: Array<String>) {
-    val readers: MutableList<String> = mutableListOf()
-    val resders2 = mutableListOf<String>()
-}
-
-// 先頭の<T>は型パラメータの宣言
-// ここでは型パラメータはレシーバと戻り値の型で使用される
-fun <T> List<T>.slice(indices: IntRange): List<T> {
-    // ...
-    return listOf()
+    val letters = ('a'..'z').toList()
+    // 型引数の明示的な指定
+    println(letters.slice<Char>(0..2))
+    // 「TはCharである」とコンパイラが推論する
+    println(letters.slice(10..13))
 }
