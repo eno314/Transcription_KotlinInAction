@@ -1,6 +1,6 @@
 package nine
 
 fun main(args: Array<String>) {
-    val authors = listOf("Dmitry", "Svetlana")
-    println(authors)
+    val readers: MutableList<String> = mutableListOf()
+    val resders2 = mutableListOf<String>()
 }
