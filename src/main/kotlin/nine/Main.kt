@@ -1,9 +1,10 @@
 package nine
 
 fun main(args: Array<String>) {
-    val helloWorld = StringBuilder("Hello World")
-    ensureTrailingPeriod(helloWorld)
-    println(helloWorld)
+    // null許容型であるString?はTを置き換える
+    val nullableStringProcessor = Processor<String?>()
+    // 「value」引数として「null」を渡しているが、上手くコンパイルされる
+    nullableStringProcessor.process(null)
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
