@@ -1,10 +1,10 @@
 package nine
 
 fun main(args: Array<String>) {
-    val authors = listOf("Dmitry", "Svetlana")
-    val readers = mutableListOf<String>(/*...*/)
-
-    readers.filter { it !in authors }
+    // この呼び出しでは、型パラメータTはIntであると推論される
+    println(listOf(1, 2, 3, 4).penultimate)
 }
 
-// fun <T> List<T>.filter(predicate: (T) -> Boolean): List<T>
+// このジェネリック拡張プロパティは任意のリストで呼び出し可能
+val <T> List<T>.penultimate: T
+    get() = this[size - 2]
