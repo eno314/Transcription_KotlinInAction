@@ -1,10 +1,9 @@
 package nine
 
 fun main(args: Array<String>) {
-    if (args is List<String>) {
+    if (args is List<*>) {
         // ...
     }
-    // Error: Cannot check for instance of erased type: List<String>
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
