@@ -1,7 +1,9 @@
 package nine
 
 fun main(args: Array<String>) {
-    printSum(listOf(1, 2, 3))
+    // セットはリストではないので、例外がスローされる
+    printSum(setOf(1, 2, 3))
+    //　Exception in thread "main" java.lang.IllegalArgumentException: List is expected
 }
 
 fun printSum(c: Collection<*>) {
