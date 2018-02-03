@@ -1,15 +1,14 @@
 package nine
 
 fun main(args: Array<String>) {
-    // キャストが成功した後に、別の例外がスローされる
-    printSum(listOf("a", "b", "c"))
-    // Exception in thread "main" java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number
+    printSum(listOf(1, 2, 3))
 }
 
-fun printSum(c: Collection<*>) {
-    // as? List<Int> で警告。Unchecked cast: List<*> to List<Int>
-    val intList = c as? List<Int> ?: throw IllegalArgumentException("List is expected")
-    println(intList.sum())
+fun printSum(c: Collection<Int>) {
+    // このチェックは妥当
+    if (c is List<Int>) {
+        println(c.sum())
+    }
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
