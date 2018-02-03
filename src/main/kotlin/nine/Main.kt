@@ -1,8 +1,10 @@
 package nine
 
 fun main(args: Array<String>) {
-    val list1: List<String> = listOf("a", "b")
-    val list2: List<Int> = listOf(1, 2, 3)
+    if (args is List<String>) {
+        // ...
+    }
+    // Error: Cannot check for instance of erased type: List<String>
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
