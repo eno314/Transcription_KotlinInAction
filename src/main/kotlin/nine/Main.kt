@@ -1,9 +1,13 @@
 package nine
 
 fun main(args: Array<String>) {
-    if (args is List<*>) {
-        // ...
-    }
+    printSum(listOf(1, 2, 3))
+}
+
+fun printSum(c: Collection<*>) {
+    // as? List<Int> で警告。Unchecked cast: List<*> to List<Int>
+    val intList = c as? List<Int> ?: throw IllegalArgumentException("List is expected")
+    println(intList.sum())
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
