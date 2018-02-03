@@ -1,9 +1,9 @@
 package nine
 
 fun main(args: Array<String>) {
-    // セットはリストではないので、例外がスローされる
-    printSum(setOf(1, 2, 3))
-    //　Exception in thread "main" java.lang.IllegalArgumentException: List is expected
+    // キャストが成功した後に、別の例外がスローされる
+    printSum(listOf("a", "b", "c"))
+    // Exception in thread "main" java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number
 }
 
 fun printSum(c: Collection<*>) {
