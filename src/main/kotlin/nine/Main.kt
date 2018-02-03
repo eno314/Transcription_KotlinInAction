@@ -1,9 +1,8 @@
 package nine
 
 fun main(args: Array<String>) {
-    // val nullableStringProcessor = Processor<String?>()
-    // nullableStringProcessor.process(null)
-    // Error : Type argument is not within its bounds: should be subtype of 'Any'
+    val list1: List<String> = listOf("a", "b")
+    val list2: List<Int> = listOf(1, 2, 3)
 }
 
 fun <T> ensureTrailingPeriod(seq: T)
