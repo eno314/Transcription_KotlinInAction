@@ -1,5 +1,6 @@
 package nine
 
+/*
 open class Animal {
     fun feed() {
         // ...
@@ -36,3 +37,4 @@ fun takeCareOfCats(cats: Herd<Cat>) {
     // キャストは不要
     feedAll(cats)
 }
+*/

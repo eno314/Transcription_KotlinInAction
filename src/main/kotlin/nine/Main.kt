@@ -8,6 +8,12 @@ fun main(args: Array<String>) {
     val t: String? = s
 }
 
+interface Transformer<T> {
+    // 引数のTが「in」ポジション
+    // 返り値のTが「out」ポジション
+    fun transform(t: T): T
+}
+
 fun test(i: Int) {
     // IntはNumberのサブタイプなのでコンパイルできる
     val n: Number = i
