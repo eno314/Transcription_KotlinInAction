@@ -1,10 +1,16 @@
 package nine
 
 import java.util.*
+import javax.xml.ws.Service
 
 fun main(args: Array<String>) {
-    // val serviceImpl = ServiceLoader.load(Service::class.java)
+    val serviceImpl = loadService<Service>()
 }
+
+// 型パラメータがreifiedとマークされている
+inline fun <reified T> loadService() =
+        // T::classとして型パラメータのクラスにアクセス
+        ServiceLoader.load(T::class.java)
 
 // reifiedは型パラメータが実行時に消去されないことを宣言している
 inline fun <reified T>
