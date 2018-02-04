@@ -5,9 +5,21 @@ fun main(args: Array<String>) {
     println(items.filterIsInstance<String>())
 }
 
+// reifiedは型パラメータが実行時に消去されないことを宣言している
+inline fun <reified T>
+        Iterable<*>.filterIsIntance(): List<T> {
+    val destination = mutableListOf<T>()
+    for (element in this) {
+        // 要素が型引数として指定されたクラスのインスタンスであるかどうかを確認できる
+        if (element is T) {
+            destination.add(element)
+        }
+    }
+    return destination
+}
+
 // このコードはコンパイルされる
 inline fun <reified T> isA(value: Any) = value is T
-
 
 fun printSum(c: Collection<Int>) {
     // このチェックは妥当
