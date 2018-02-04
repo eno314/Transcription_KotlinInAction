@@ -16,7 +16,7 @@ fun test(i: Int) {
         // ...
     }
     // IntはStringのサブタイプなのでコンパイルできない
-    f(i)
+    // f(i)
 }
 
 fun addAnswer(list: MutableList<Any>) {
