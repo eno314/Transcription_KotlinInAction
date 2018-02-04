@@ -1,10 +1,12 @@
 package nine
 
 fun main(args: Array<String>) {
+    println(isA<String>("abc"))
+    println(isA<String>(123))
 }
 
-fun <T> isA(value: Any) = value is T
-// Error: Cannot check for instance of erased type: T
+// このコードはコンパイルされる
+inline fun <reified T> isA(value: Any) = value is T
 
 
 fun printSum(c: Collection<Int>) {
