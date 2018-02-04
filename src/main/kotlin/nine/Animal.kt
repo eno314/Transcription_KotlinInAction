@@ -21,3 +21,18 @@ fun feedAll(animals: Herd<Animal>) {
         animals[i].feed()
     }
 }
+
+// CatはAnimalである
+class Cat : Animal() {
+    fun cleanLitter() {
+        //..
+    }
+}
+
+fun takeCareOfCats(cats: Herd<Cat>) {
+    for (i in 0 until cats.size) {
+        cats[i].cleanLitter()
+        // エラー：推論される型はHerd<Cat>だが、Herd<Animal>が期待されている
+        // feedAll(cats)
+    }
+}
