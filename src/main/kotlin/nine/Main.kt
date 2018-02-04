@@ -1,10 +1,13 @@
 package nine
 
 import java.util.*
-import javax.xml.ws.Service
 
 fun main(args: Array<String>) {
-    val serviceImpl = loadService<Service>()
+    printContents(listOf("abc", "bac"))
+}
+
+fun printContents(list: List<Any>) {
+    println(list.joinToString())
 }
 
 /*
