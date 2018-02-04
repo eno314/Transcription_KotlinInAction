@@ -3,7 +3,15 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    printContents(listOf("abc", "bac"))
+    val strings = mutableListOf("abc", "bac")
+    // もし、この行がコンパイルされたら...
+    addAnswer(strings)
+    // ...実行時に例外が発生する
+    println(strings.maxBy { it.length })
+}
+
+fun addAnswer(list: MutableList<Any>) {
+    list.add(42)
 }
 
 fun printContents(list: List<Any>) {
