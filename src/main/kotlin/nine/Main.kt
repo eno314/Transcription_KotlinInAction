@@ -1,8 +1,9 @@
 package nine
 
+import java.util.*
+
 fun main(args: Array<String>) {
-    val items = listOf("one", 2, "three")
-    println(items.filterIsInstance<String>())
+    // val serviceImpl = ServiceLoader.load(Service::class.java)
 }
 
 // reifiedは型パラメータが実行時に消去されないことを宣言している
