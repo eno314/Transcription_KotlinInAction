@@ -3,7 +3,9 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    test(10)
+    val s: String = "abc"
+    // StringはString?のサブタイプなので、この代入は正当
+    val t: String? = s
 }
 
 fun test(i: Int) {
