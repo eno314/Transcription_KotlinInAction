@@ -3,11 +3,18 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val strings = mutableListOf("abc", "bac")
-    // もし、この行がコンパイルされたら...
-    addAnswer(strings)
-    // ...実行時に例外が発生する
-    println(strings.maxBy { it.length })
+    test(10)
+}
+
+fun test(i: Int) {
+    // IntはNumberのサブタイプなのでコンパイルできる
+    val n: Number = i
+
+    fun f(s: String) {
+        // ...
+    }
+    // IntはStringのサブタイプなのでコンパイルできない
+    f(i)
 }
 
 fun addAnswer(list: MutableList<Any>) {
