@@ -6,8 +6,8 @@ open class Animal {
     }
 }
 
-// このパラメータは共変として宣言されていない
-class Herd<T : Animal> {
+// Tパラメータは共変
+class Herd<out T : Animal> {
     val size: Int
         get() = 0 // ...
 
@@ -32,7 +32,7 @@ class Cat : Animal() {
 fun takeCareOfCats(cats: Herd<Cat>) {
     for (i in 0 until cats.size) {
         cats[i].cleanLitter()
-        // エラー：推論される型はHerd<Cat>だが、Herd<Animal>が期待されている
-        // feedAll(cats)
     }
+    // キャストは不要
+    feedAll(cats)
 }
