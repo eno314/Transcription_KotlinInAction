@@ -1,8 +1,11 @@
 package nine
 
 fun main(args: Array<String>) {
-    printSum(listOf(1, 2, 3))
 }
+
+fun <T> isA(value: Any) = value is T
+// Error: Cannot check for instance of erased type: T
+
 
 fun printSum(c: Collection<Int>) {
     // このチェックは妥当
