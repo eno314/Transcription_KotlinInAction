@@ -1,8 +1,8 @@
 package nine
 
 fun main(args: Array<String>) {
-    println(isA<String>("abc"))
-    println(isA<String>(123))
+    val items = listOf("one", 2, "three")
+    println(items.filterIsInstance<String>())
 }
 
 // このコードはコンパイルされる
