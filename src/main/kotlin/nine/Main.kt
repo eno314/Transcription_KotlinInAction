@@ -7,6 +7,18 @@ fun main(args: Array<String>) {
     val serviceImpl = loadService<Service>()
 }
 
+/*
+// 型パラメータがreifiedとマークされている
+inline fun <reified T : Activity> Context.startActivity() {
+    // T::classとして型パラメータのクラスにアクセス
+    val intent = Intent(this, T::class.java)
+    startActivity(intent)
+}
+
+// アクティビティを表示するメソッドの呼び出し
+startActivity<DetailActivity>()
+*/
+
 // 型パラメータがreifiedとマークされている
 inline fun <reified T> loadService() =
         // T::classとして型パラメータのクラスにアクセス
