@@ -8,9 +8,11 @@ fun main(args: Array<String>) {
     validators[String::class] = DefaultStringValidator
     validators[Int::class] = DefaultIntValidator
 
-    // 警告：unchecked cast
-    val stringValidator = validators[String::class] as FieldValidation<String>
+    // 不適切なバリデータを取得するが、このコードはコンパイルされる
+    val stringValidator = validators[Int::class] as FieldValidation<String>
+    // 本物のエラーはバリデータを使用するまで隠れている
     println(stringValidator.validate(""))
+    // Exception in thread "main" java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number
 }
 
 // 再び、全てのリストを受け入れる引数
