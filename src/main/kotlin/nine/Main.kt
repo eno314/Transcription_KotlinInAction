@@ -3,18 +3,15 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val anyComparator = Comparator<Any> { e1, e2 ->
-        e1.hashCode() - e2.hashCode()
-    }
-
-    val strings = listOf("piyo", "fuga", "hoge")
-    // 任意のオブジェクトのためのComparatorを、
-    // 文字列のような特定のオブジェクトを比較するのに使用できる
-    val sorted = strings.sortedWith(anyComparator)
-    println(sorted)
+    val ints = mutableListOf(1, 2, 3)
+    val anyItems = mutableListOf<Any>()
+    // IntはAnyのサブタイプなので、この関数を呼び出すことができる
+    copyData(ints, anyItems)
+    println(anyItems)
 }
 
-fun <T> copyData(source: MutableList<T>, destination: MutableList<T>) {
+// コピー元の要素の型は、コピー先の要素の型のサブタイプであるべき
+fun <T : R, R> copyData(source: MutableList<T>, destination: MutableList<R>) {
     for (item in source) {
         destination.add(item)
     }
