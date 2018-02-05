@@ -6,11 +6,10 @@ fun main(args: Array<String>) {
     println(listOf("Svetlana", "Dmitry"))
 }
 
-// 全てのリストを受け入れる引数
-fun printFirst(list: List<*>) {
-    // isNotEmptyはジェネリック型パラメータを使わない
+// 再び、全てのリストを受け入れる引数
+fun <T> printFirst(list: List<T>) {
     if (list.isNotEmpty()) {
-        // ここでは、firstはAny?を返すが、この場合はそれで十分
+        // ここでは、firstはTの値を返す
         println(list.first())
     }
 }
