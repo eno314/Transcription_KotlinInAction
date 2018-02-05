@@ -8,6 +8,13 @@ fun main(args: Array<String>) {
     val t: String? = s
 }
 
+// MutableListは、Tに対する共変として宣言できない
+interface MutableList<T> : List<T>, MutableCollection<T> {
+    // Tがinポジションで使われているため
+    override fun add(element: T): Boolean
+}
+
+/*
 interface List<out T> : Collection<T> {
     // Tを返すメソッドだけを定義する読み取り専用インタフェース
     // したがって、Tはoutポジションに位置する
@@ -17,6 +24,7 @@ interface List<out T> : Collection<T> {
     fun subList(fromIndex: Int, toIndex: Int): List<T>
     // ...
 }
+*/
 
 interface Transformer<T> {
     // 引数のTが「in」ポジション
