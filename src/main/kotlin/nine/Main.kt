@@ -3,11 +3,10 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val ints = mutableListOf(1, 2, 3)
-    val anyItems = mutableListOf<Any>()
-    // IntはAnyのサブタイプなので、この関数を呼び出すことができる
-    copyData(ints, anyItems)
-    println(anyItems)
+    val list: MutableList<out Number> = mutableListOf(1, 2, 3)
+    list.add(42)
+    // Error: Out-projected type 'MutableList<out Number>' prohibits the use of 'public abstract fun add(element: E)
+    // : Boolean defined in kotlin.collections.MutableList'
 }
 
 // 型の使用方法にoutキーワードを追加できる
