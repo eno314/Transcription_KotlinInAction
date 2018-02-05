@@ -8,6 +8,9 @@ fun main(args: Array<String>) {
 
     println(Validators[String::class].validate("Kotlin"))
     println(Validators[Int::class].validate(42))
+
+    // ここでgetメソッドはFieldValidator<String>のインスタンスを返す
+    println(Validators[String::class].validate(42))
 }
 
 // 再び、全てのリストを受け入れる引数
