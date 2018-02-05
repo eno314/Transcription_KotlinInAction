@@ -16,4 +16,10 @@ class MyTest {
     fun testMethod() {
         Assert.assertTrue(true)
     }
+
+    fun test(list: List<*>) {
+        @Suppress("UNCHECKED_CAST")
+        val strings = list as List<String>
+        // ...
+    }
 }
