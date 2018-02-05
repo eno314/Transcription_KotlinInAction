@@ -1,9 +1,12 @@
 package nine
 
 import java.util.*
+import kotlin.reflect.KClass
 
 fun main(args: Array<String>) {
-    println(listOf("Svetlana", "Dmitry"))
+    val validators = mutableMapOf<KClass<*>, FieldValidation<*>>()
+    validators[String::class] = DefaultIntValidator
+    validators[Int::class] = DefaultIntValidator
 }
 
 // 再び、全てのリストを受け入れる引数
