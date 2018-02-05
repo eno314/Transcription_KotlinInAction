@@ -7,6 +7,11 @@ fun main(args: Array<String>) {
     val validators = mutableMapOf<KClass<*>, FieldValidation<*>>()
     validators[String::class] = DefaultIntValidator
     validators[Int::class] = DefaultIntValidator
+
+    // マップに格納された値は型FieldValidator<*>を持つ
+    validators[String::class]!!.validate("")
+    // Error: Out-projected type 'FieldValidation<*>' prohibits the use of 'public abstract fun validate(input: T):
+    // Boolean defined in nine.FieldValidation'
 }
 
 // 再び、全てのリストを受け入れる引数
