@@ -3,15 +3,10 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val list: MutableList<out Number> = mutableListOf(1, 2, 3)
-    list.add(42)
-    // Error: Out-projected type 'MutableList<out Number>' prohibits the use of 'public abstract fun add(element: E)
-    // : Boolean defined in kotlin.collections.MutableList'
 }
 
-// 型の使用方法にoutキーワードを追加できる
-// 「in」ポジションにあるTを持つメソッドは使われていない
-fun <T> copyData(source: MutableList<out T>, destination: MutableList<T>) {
+// コピー先要素の型をコピー元要素の型のスーパータイプとすることを許可している
+fun <T> copyData(source: MutableList<T>, destination: MutableList<in T>) {
     for (item in source) {
         destination.add(item)
     }
