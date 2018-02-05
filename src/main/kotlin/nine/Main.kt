@@ -5,13 +5,12 @@ import kotlin.reflect.KClass
 
 fun main(args: Array<String>) {
     val validators = mutableMapOf<KClass<*>, FieldValidation<*>>()
-    validators[String::class] = DefaultIntValidator
+    validators[String::class] = DefaultStringValidator
     validators[Int::class] = DefaultIntValidator
 
-    // マップに格納された値は型FieldValidator<*>を持つ
-    validators[String::class]!!.validate("")
-    // Error: Out-projected type 'FieldValidation<*>' prohibits the use of 'public abstract fun validate(input: T):
-    // Boolean defined in nine.FieldValidation'
+    // 警告：unchecked cast
+    val stringValidator = validators[String::class] as FieldValidation<String>
+    println(stringValidator.validate(""))
 }
 
 // 再び、全てのリストを受け入れる引数
