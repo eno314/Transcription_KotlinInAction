@@ -8,6 +8,13 @@ fun main(args: Array<String>) {
     val t: String? = s
 }
 
+interface List<out T> : Collection<T> {
+    // Tを返すメソッドだけを定義する読み取り専用インタフェース
+    // したがって、Tはoutポジションに位置する
+    operator fun get(index: Int): T
+    // ...
+}
+
 interface Transformer<T> {
     // 引数のTが「in」ポジション
     // 返り値のTが「out」ポジション

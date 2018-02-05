@@ -6,6 +6,7 @@ open class Animal {
     }
 }
 
+/*
 // Tパラメータは共変
 class Herd<out T : Animal> {
     val size: Int
@@ -16,6 +17,7 @@ class Herd<out T : Animal> {
         // ...
     }
 }
+*/
 
 /*
 fun feedAll(animals: Herd<Animal>) {
