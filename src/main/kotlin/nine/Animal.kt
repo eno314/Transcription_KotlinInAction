@@ -7,7 +7,7 @@ open class Animal {
 }
 
 // Tパラメータは共変
-class Herd<T : Animal>(var leadAnimal: T, vararg animals: T) {
+class Herd<out T : Animal>(private var leadAnimal: T, vararg animals: T) {
     val size: Int
         get() = 0 // ...
 
