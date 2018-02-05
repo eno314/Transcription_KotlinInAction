@@ -14,11 +14,19 @@ fun main(args: Array<String>) {
     println(sorted)
 }
 
+fun <T> copyData(source: MutableList<T>, destination: MutableList<T>) {
+    for (item in source) {
+        destination.add(item)
+    }
+}
+
+/*
 // MutableListは、Tに対する共変として宣言できない
 interface MutableList<T> : List<T>, MutableCollection<T> {
     // Tがinポジションで使われているため
     override fun add(element: T): Boolean
 }
+*/
 
 /*
 interface List<out T> : Collection<T> {
