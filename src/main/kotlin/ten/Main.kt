@@ -1,10 +1,10 @@
 package ten
 
-import ru.yole.jkid.serialization.serialize
+import ru.yole.jkid.deserialization.deserialize
 
 fun main(args: Array<String>) {
-    val person = Person("Alice", 29)
-    println(serialize(person))
+    val json = """{"name": "Alice", "age": 29}"""
+    println(deserialize<Person>(json))
 }
 
 @Deprecated("Use removeAt(index) instead.", ReplaceWith("removeAt(index)"))
