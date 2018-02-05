@@ -3,9 +3,15 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val s: String = "abc"
-    // StringはString?のサブタイプなので、この代入は正当
-    val t: String? = s
+    val anyComparator = Comparator<Any> { e1, e2 ->
+        e1.hashCode() - e2.hashCode()
+    }
+
+    val strings = listOf("piyo", "fuga", "hoge")
+    // 任意のオブジェクトのためのComparatorを、
+    // 文字列のような特定のオブジェクトを比較するのに使用できる
+    val sorted = strings.sortedWith(anyComparator)
+    println(sorted)
 }
 
 // MutableListは、Tに対する共変として宣言できない
