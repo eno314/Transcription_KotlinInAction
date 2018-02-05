@@ -12,6 +12,9 @@ interface List<out T> : Collection<T> {
     // Tを返すメソッドだけを定義する読み取り専用インタフェース
     // したがって、Tはoutポジションに位置する
     operator fun get(index: Int): T
+
+    // このTもoutポジションである
+    fun subList(fromIndex: Int, toIndex: Int): List<T>
     // ...
 }
 
