@@ -10,8 +10,9 @@ fun main(args: Array<String>) {
     println(anyItems)
 }
 
-// コピー元の要素の型は、コピー先の要素の型のサブタイプであるべき
-fun <T : R, R> copyData(source: MutableList<T>, destination: MutableList<R>) {
+// 型の使用方法にoutキーワードを追加できる
+// 「in」ポジションにあるTを持つメソッドは使われていない
+fun <T> copyData(source: MutableList<out T>, destination: MutableList<T>) {
     for (item in source) {
         destination.add(item)
     }
