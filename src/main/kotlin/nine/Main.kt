@@ -3,18 +3,16 @@ package nine
 import java.util.*
 
 fun main(args: Array<String>) {
-    val list: MutableList<Any?> = mutableListOf('a', 1, "qwe")
-    val chars = mutableListOf('a', 'b', 'c')
-    // MutableList<*>は、MutableList<Any?>と同じではない
-    val unknownElements: MutableList<*> = if (Random().nextBoolean()) list else chars
+    println(listOf("Svetlana", "Dmitry"))
+}
 
-    // コンパイラはこのメソッドの呼出を禁止する
-    // unknownElements.add(42)
-    // Error: Out-projected type 'MutableList<*>' prohibits the use of 'public abstract fun add(element: E):
-    // Boolean defined in kotlin.collections.MutableList'
-
-    // 要素の取得は安全、first()はAny？型の要素を返す
-    println(unknownElements.first())
+// 全てのリストを受け入れる引数
+fun printFirst(list: List<*>) {
+    // isNotEmptyはジェネリック型パラメータを使わない
+    if (list.isNotEmpty()) {
+        // ここでは、firstはAny?を返すが、この場合はそれで十分
+        println(list.first())
+    }
 }
 
 // コピー先要素の型をコピー元要素の型のスーパータイプとすることを許可している
