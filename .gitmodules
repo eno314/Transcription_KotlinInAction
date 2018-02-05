@@ -1,0 +1,3 @@
+[submodule "jki"]
+	path = jki
+	url = https://github.com/yole/jkid.git
