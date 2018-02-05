@@ -1,7 +1,10 @@
 package ten
 
+import ru.yole.jkid.serialization.serialize
+
 fun main(args: Array<String>) {
-    remove(1)
+    val person = Person("Alice", 29)
+    println(serialize(person))
 }
 
 @Deprecated("Use removeAt(index) instead.", ReplaceWith("removeAt(index)"))
