@@ -9,4 +9,5 @@ interface KClass<T : Any> {
     val members: Collection<KCallable<*>>
     val constructors: Collection<KFunction<T>>
     val nestedClasses: Collection<KClass<*>>
+    // ...
 }
