@@ -3,11 +3,9 @@ package ten
 var counter = 0
 
 fun main(args: Array<String>) {
-    val kProperty = ::counter
-    // リフレクションを使ってsetterを呼び出し、引数として21を渡す
-    kProperty.set(21)
-    // getを呼び出してプロパティの値を取得する
-    println(kProperty.get())
+    val person = Person("Alice", 29)
+    val memberProperty = Person::age
+    println(memberProperty.get(person))
 }
 
 fun sum(x: Int, y: Int) = x + y
