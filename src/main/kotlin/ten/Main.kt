@@ -1,15 +1,13 @@
 package ten
 
-import ru.yole.jkid.deserialization.deserialize
-import ru.yole.jkid.serialization.serialize
-import java.text.SimpleDateFormat
+import kotlin.reflect.full.memberProperties
 
 fun main(args: Array<String>) {
-    val person = Person("Alice", SimpleDateFormat("dd-mm-yyyy").parse("13-02-1987"))
-    println(serialize(person))
-
-    val json = """{"birthDate": "13-02-1987", "name": "Alice"}"""
-    println(deserialize<Person>(json))
+    val person = Person("Alice", 29)
+    // kClass<Person>のインスタンスを返す
+    val kClass = person.javaClass.kotlin
+    println(kClass.simpleName)
+    kClass.memberProperties.forEach { println(it.name) }
 }
 
 @Deprecated("Use removeAt(index) instead.", ReplaceWith("removeAt(index)"))
