@@ -5,6 +5,12 @@ import java.util.*
 
 // annotation class JsonName(val name: String)
 
+/*
+annotation class CustomSerializer(
+        val serializerClass: KClass<out ValueSerializer<*>>
+)
+*/
+
 class Person(
         val Name: String,
         @CustomSerializer(DateSerializer::class)

@@ -8,7 +8,7 @@ import kotlin.reflect.full.memberProperties
 var counter = 0
 
 fun main(args: Array<String>) {
-    
+
 }
 
 private fun StringBuilder.serializeObject(obj: Any) {
