@@ -22,6 +22,14 @@ fun main(args: Array<String>) {
     }
 }
 
+private fun StringBuilder.serializeObject(obj: Any) {
+    obj.javaClass.kotlin.memberProperties
+            .filter { it.findAnnotation<JsonExclude>() == null }
+            .joinToStringBuilder(this, prefix = "{", postfix = "}") {
+                // serializeProperty(it, obj)
+            }
+}
+
 inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
 
 /*
