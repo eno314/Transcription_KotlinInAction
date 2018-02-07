@@ -2,6 +2,7 @@ package ten
 
 import ru.yole.jkid.joinToStringBuilder
 import kotlin.reflect.KAnnotatedElement
+import kotlin.reflect.KProperty1
 import kotlin.reflect.full.memberProperties
 
 var counter = 0
@@ -28,6 +29,14 @@ private fun StringBuilder.serializeObject(obj: Any) {
             .joinToStringBuilder(this, prefix = "{", postfix = "}") {
                 // serializeProperty(it, obj)
             }
+}
+
+private fun StringBuilder.serializeProperty(prop: KProperty1<Any, *>, obj: Any) {
+    val jsonNameAnn = prop.findAnnotation<JsonName>()
+    val propName = jsonNameAnn?.name ?: prop.name
+    // serializeString(propName)
+    append(": ")
+    // serializePropertyValue(prop.get(obj))
 }
 
 inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
