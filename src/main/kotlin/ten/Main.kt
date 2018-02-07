@@ -1,6 +1,7 @@
 package ten
 
 import ru.yole.jkid.joinToStringBuilder
+import kotlin.reflect.KAnnotatedElement
 import kotlin.reflect.full.memberProperties
 
 var counter = 0
@@ -10,6 +11,8 @@ fun main(args: Array<String>) {
     val memberProperty = Person::age
     println(memberProperty.get(person))
 }
+
+inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
 
 /*
 private fun StringBuilder.serializeObject(obj: Any) {
