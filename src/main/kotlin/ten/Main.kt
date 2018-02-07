@@ -37,7 +37,13 @@ private fun StringBuilder.serializeProperty(prop: KProperty1<Any, *>, obj: Any) 
     val propName = jsonNameAnn?.name ?: prop.name
     // serializeString(propName)
     append(": ")
-    // serializePropertyValue(prop.get(obj))
+
+    val value = prop.get(obj)
+
+    // プロパティに対するカスタムシリアライザがあれば使う
+    // カスタムシリアライザを使わないのなら、以前のようにプロパティの値を使う
+    val jsonValue = prop.getSerializer()?.toJsonValue(value) ?: value
+    // serializePropertyValue(jsonValue)
 }
 
 inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
