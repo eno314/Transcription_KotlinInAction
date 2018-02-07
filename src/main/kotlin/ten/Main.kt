@@ -11,6 +11,7 @@ fun main(args: Array<String>) {
     println(memberProperty.get(person))
 }
 
+/*
 private fun StringBuilder.serializeObject(obj: Any) {
     // オブジェクトに対するKClassを取得
     val kClass = obj.javaClass.kotlin
@@ -25,6 +26,7 @@ private fun StringBuilder.serializeObject(obj: Any) {
         serializePropertyValue(prop.get(obj))
     }
 }
+*/
 
 fun sum(x: Int, y: Int) = x + y
 
