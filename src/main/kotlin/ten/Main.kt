@@ -8,8 +8,9 @@ var counter = 0
 
 fun main(args: Array<String>) {
     val person = Person("Alice", 29)
-    val memberProperty = Person::age
-    println(memberProperty.get(person))
+    val kClass = person.javaClass.kotlin
+    val properties = kClass.memberProperties
+            .filter { it.findAnnotation<JsonExclude>() == null }
 }
 
 inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
