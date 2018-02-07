@@ -10,7 +10,16 @@ fun main(args: Array<String>) {
     val person = Person("Alice", 29)
     val kClass = person.javaClass.kotlin
     val properties = kClass.memberProperties
-            .filter { it.findAnnotation<JsonExclude>() == null }
+
+    properties.forEach { prop ->
+        // @JsonNameアノテーションのインスタンスがあれば取得する
+        val jsonNameAnn = prop.findAnnotation<JsonName>()
+
+        // nameという引数の値を取得する。なければprop.nameを使う
+        val propName = jsonNameAnn?.name ?: prop.name
+
+        println(propName)
+    }
 }
 
 inline fun <reified T> KAnnotatedElement.findAnnotation(): T? = annotations.filterIsInstance<T>().firstOrNull()
