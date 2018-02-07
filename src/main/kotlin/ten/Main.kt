@@ -8,19 +8,7 @@ import kotlin.reflect.full.memberProperties
 var counter = 0
 
 fun main(args: Array<String>) {
-    val person = Person("Alice", 29)
-    val kClass = person.javaClass.kotlin
-    val properties = kClass.memberProperties
-
-    properties.forEach { prop ->
-        // @JsonNameアノテーションのインスタンスがあれば取得する
-        val jsonNameAnn = prop.findAnnotation<JsonName>()
-
-        // nameという引数の値を取得する。なければprop.nameを使う
-        val propName = jsonNameAnn?.name ?: prop.name
-
-        println(propName)
-    }
+    
 }
 
 private fun StringBuilder.serializeObject(obj: Any) {

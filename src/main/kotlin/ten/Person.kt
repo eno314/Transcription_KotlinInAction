@@ -1,11 +1,12 @@
 package ten
 
-import ru.yole.jkid.JsonName
+import ru.yole.jkid.CustomSerializer
+import java.util.*
 
 // annotation class JsonName(val name: String)
 
 class Person(
-        @JsonName("alias")
-        val firstName: String,
-        val age: Int
+        val Name: String,
+        @CustomSerializer(DateSerializer::class)
+        val birthDate: Date
 )
