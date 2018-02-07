@@ -1,14 +1,27 @@
 package ten
 
+import ru.yole.jkid.CustomSerializer
 import ru.yole.jkid.joinToStringBuilder
 import kotlin.reflect.KAnnotatedElement
+import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty1
+import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.memberProperties
 
 var counter = 0
 
 fun main(args: Array<String>) {
 
+}
+
+fun KProperty<*>.getSerializer(): ValueSerializer<Any?>? {
+    val customSerializer = findAnnotation<CustomSerializer>() ?: return null
+    val serializerClass = customSerializer.serializerClass
+
+    val valueSerializer = serializerClass.objectInstance ?: serializerClass.createInstance()
+
+    @Suppress("UNCHECKED_CAST")
+    return valueSerializer as ValueSerializer<Any?>
 }
 
 private fun StringBuilder.serializeObject(obj: Any) {
