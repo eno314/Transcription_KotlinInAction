@@ -1,5 +1,6 @@
 package ten
 
+import ru.yole.jkid.deserialization.JKidException
 import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.primaryConstructor
@@ -29,8 +30,17 @@ class ClassInfo<T : Any>(cls: KClass<T>) {
     }
 
     fun createInstance(arguments: Map<KParameter, Any?>): T {
-        ensureAllParamterPresent(arguments)
+        ensureAllParameterPresent(arguments)
         return constructor.callBy(arguments)
     }
     // ...
+
+    private fun ensureAllParameterPresent(arguments: Map<KParameter, Any?>) {
+        for (param in constructor.parameters) {
+            if (arguments[param] == null && !param.isOptional && !param.type.isMarkedNullable) {
+                throw JKidException("Missing value for parameter ${param.name}")
+            }
+        }
+    }
 }
+
