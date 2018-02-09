@@ -2,6 +2,7 @@ package ten
 
 import ru.yole.jkid.deserialization.ClassInfo
 import ru.yole.jkid.deserialization.ClassInfoCache
+import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.jvm.javaType
 
