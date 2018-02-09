@@ -2,7 +2,7 @@ package ten
 
 interface Seed : JsonObject {
 
-    fun span(): Any?
+    fun spawn(): Any?
 
     fun createCompositeProperty(propertyName: String, isList: Boolean): JsonObject
 
