@@ -1,6 +1,7 @@
 package ten
 
 import ru.yole.jkid.CustomSerializer
+import ru.yole.jkid.deserialization.deserialize
 import ru.yole.jkid.joinToStringBuilder
 import kotlin.reflect.KAnnotatedElement
 import kotlin.reflect.KProperty
@@ -11,7 +12,9 @@ import kotlin.reflect.full.memberProperties
 var counter = 0
 
 fun main(args: Array<String>) {
-
+    val json = """{"title": "Catch-22", "author": {"name": "J. Heller"}}"""
+    val book = deserialize<Book>(json)
+    println(book)
 }
 
 fun KProperty<*>.getSerializer(): ValueSerializer<Any?>? {
