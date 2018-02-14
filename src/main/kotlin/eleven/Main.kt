@@ -8,12 +8,8 @@ fun main(args: Array<String>) {
 }
 
 // appendExclは拡張関数型の変数
-val appendExcl : StringBuilder.() -> Unit = { append("!") }
+val appendExcl: StringBuilder.() -> Unit = { append("!") }
 
-// レシーバ付き関数型の型の引数を宣言
-fun buildString(builderAction: StringBuilder.() -> Unit): String {
-    val sb = StringBuilder()
-    // StringBuilderをラムダの引数として渡す
-    builderAction(sb)
-    return sb.toString()
-}
+// 標準ライブラリのbuildString
+fun buildString(builderAction: StringBuilder.() -> Unit) =
+        StringBuilder().apply(builderAction).toString()
