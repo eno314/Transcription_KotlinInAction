@@ -1,14 +1,14 @@
 package eleven
 
 fun main(args: Array<String>) {
-    val s = buildString {
-        // thisキーワードはStringBuilderインスタンスを参照している
-        this.append("Hello, ")
-        // thisをなくしてStringBuilderへ暗黙的に参照している
-        append("World!")
-    }
-    println(s)
+    val stringBuilder = StringBuilder("Hi")
+    // appendExclを拡張関数として呼び出すことができる　
+    stringBuilder.appendExcl()
+    println(stringBuilder)
 }
+
+// appendExclは拡張関数型の変数
+val appendExcl : StringBuilder.() -> Unit = { append("!") }
 
 // レシーバ付き関数型の型の引数を宣言
 fun buildString(builderAction: StringBuilder.() -> Unit): String {
