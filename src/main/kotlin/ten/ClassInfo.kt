@@ -5,6 +5,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.primaryConstructor
 
+/*
 class ClassInfo<T : Any>(cls: KClass<T>) {
     private val constructor = cls.primaryConstructor!!
 
@@ -43,4 +44,4 @@ class ClassInfo<T : Any>(cls: KClass<T>) {
         }
     }
 }
-
+*/
