@@ -2,15 +2,16 @@ package eleven
 
 fun main(args: Array<String>) {
     val s = buildString {
-        // StringBuilderインスタンスへの参照としてitを使用する
-        it.append("Hello, ")
-        it.append("World!")
+        // thisキーワードはStringBuilderインスタンスを参照している
+        this.append("Hello, ")
+        // thisをなくしてStringBuilderへ暗黙的に参照している
+        append("World!")
     }
     println(s)
 }
 
-// 関数型の引数を宣言
-fun buildString(builderAction: (StringBuilder) -> Unit): String {
+// レシーバ付き関数型の型の引数を宣言
+fun buildString(builderAction: StringBuilder.() -> Unit): String {
     val sb = StringBuilder()
     // StringBuilderをラムダの引数として渡す
     builderAction(sb)
