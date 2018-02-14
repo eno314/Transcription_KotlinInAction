@@ -1,10 +1,10 @@
 package eleven
 
 fun main(args: Array<String>) {
-    val stringBuilder = StringBuilder("Hi")
-    // appendExclを拡張関数として呼び出すことができる　
-    stringBuilder.appendExcl()
-    println(stringBuilder)
+    val map = mutableMapOf(1 to "one")
+    map.apply { this[2] = "two" }
+    with(map) { this[3] = "three" }
+    println(map)
 }
 
 // appendExclは拡張関数型の変数
