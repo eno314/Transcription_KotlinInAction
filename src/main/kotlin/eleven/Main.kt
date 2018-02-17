@@ -4,9 +4,20 @@ import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 
 fun main(args: Array<String>) {
-    println(buildDropdown())
+    val html = createHTML().ul {
+        classes = setOf("dropdown-menu")
+        // liの代わりにitem関数を利用可能
+        item("#", "Action")
+        item("#", "Another action")
+        li { role = "separator"; classes = setOf("divider") }
+        li { classes = setOf("dropdown-header"); +"Header" }
+        item("#", "Separated link")
+    }
+
+    println(html)
 }
 
+/*
 fun dropdownExample() = createHTML().dropdown {
     dropdownButton { +"Dropdown" }
     dropdownMenu {
@@ -17,6 +28,7 @@ fun dropdownExample() = createHTML().dropdown {
         item("#", "Separated link")
     }
 }
+*/
 
 fun buildDropdown() = createHTML().div(classes = "dropdown") {
     button(classes = "btn dropdown-toggle") {

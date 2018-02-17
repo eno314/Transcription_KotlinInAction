@@ -1,5 +1,9 @@
 package eleven
 
+import kotlinx.html.UL
+import kotlinx.html.a
+import kotlinx.html.li
+
 open class Tag(val name: String) {
     // すべてのネストされたタグのリストを持つ
     private val children = mutableListOf<Tag>()
@@ -46,3 +50,5 @@ fun createAnotherTable() = table {
         }
     }
 }
+
+fun UL.item(href: String, name: String) = li { a(href) { +name } }
