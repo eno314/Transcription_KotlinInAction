@@ -6,7 +6,7 @@ import kotlinx.html.td
 import kotlinx.html.tr
 
 fun main(args: Array<String>) {
-    println(createSimpleTable())
+    println(createTable())
 }
 
 fun createSimpleTable() = createHTML()
