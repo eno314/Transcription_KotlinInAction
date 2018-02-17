@@ -1,12 +1,24 @@
 package eleven
 
+import kotlinx.html.*
 import kotlinx.html.stream.createHTML
-import kotlinx.html.table
-import kotlinx.html.td
-import kotlinx.html.tr
 
 fun main(args: Array<String>) {
-    println(createAnotherTable())
+    println(buildDropdown())
+}
+
+fun buildDropdown() = createHTML().div(classes = "dropdown") {
+    button(classes = "btn dropdown-toggle") {
+        +"Dropdown"
+        span(classes = "caret")
+    }
+    ul(classes = "dropdown-menu") {
+        li { a("#") { +"Action" } }
+        li { a("#") { +"Another action" } }
+        li { role = "separator"; classes = setOf("divider") }
+        li { classes = setOf("dropdown-header"); +"Header" }
+        li { a("#") { +"Separated link" } }
+    }
 }
 
 fun createSimpleTable() = createHTML()
