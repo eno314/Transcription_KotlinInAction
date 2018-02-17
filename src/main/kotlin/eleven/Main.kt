@@ -11,8 +11,13 @@ fun main(args: Array<String>) {
 
 fun createSimpleTable() = createHTML()
         .table {
-            tr {
-                td { +"cell" }
+            // this@tableはTABLE型
+            (this@table).tr {
+                // this@trはTR型
+                (this@tr).td {
+                    // ここでTD型の暗黙的なレシーバであるthis@tdを使える
+                    +"cell"
+                }
             }
         }
 
