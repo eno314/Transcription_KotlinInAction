@@ -58,3 +58,5 @@ fun UL.divider() = li {
 fun UL.dropdownHeader(text: String) = li {
     classes = setOf("dropdown-header"); +text
 }
+
+fun DIV.dropdownMenu(block: UL.() -> Unit) = ul("dropdown-menu", block)
