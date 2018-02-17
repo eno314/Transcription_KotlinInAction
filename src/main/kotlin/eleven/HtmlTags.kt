@@ -36,3 +36,13 @@ fun createTable() =
                 }
             }
         }
+
+fun createAnotherTable() = table {
+    for (i in 1..2) {
+        // trを呼び出すたびに新しいTRタグが生成され、TABLEの子として追加される
+        tr {
+            td {
+            }
+        }
+    }
+}
