@@ -7,6 +7,17 @@ fun main(args: Array<String>) {
     println(buildDropdown())
 }
 
+fun dropdownExample() = createHTML().dropdown {
+    dropdownButton { +"Dropdown" }
+    dropdownMenu {
+        item("#", "Action")
+        item("#", "Another action")
+        divider()
+        dropdownHeader("Header")
+        item("#", "Separated link")
+    }
+}
+
 fun buildDropdown() = createHTML().div(classes = "dropdown") {
     button(classes = "btn dropdown-toggle") {
         +"Dropdown"
