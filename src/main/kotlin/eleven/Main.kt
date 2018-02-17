@@ -9,8 +9,8 @@ fun main(args: Array<String>) {
         // liの代わりにitem関数を利用可能
         item("#", "Action")
         item("#", "Another action")
-        li { role = "separator"; classes = setOf("divider") }
-        li { classes = setOf("dropdown-header"); +"Header" }
+        divider()
+        dropdownHeader("Header")
         item("#", "Separated link")
     }
 

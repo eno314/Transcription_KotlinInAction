@@ -1,8 +1,6 @@
 package eleven
 
-import kotlinx.html.UL
-import kotlinx.html.a
-import kotlinx.html.li
+import kotlinx.html.*
 
 open class Tag(val name: String) {
     // すべてのネストされたタグのリストを持つ
@@ -52,3 +50,11 @@ fun createAnotherTable() = table {
 }
 
 fun UL.item(href: String, name: String) = li { a(href) { +name } }
+
+fun UL.divider() = li {
+    role = "separator"; classes = setOf("divider")
+}
+
+fun UL.dropdownHeader(text: String) = li {
+    classes = setOf("dropdown-header"); +text
+}
