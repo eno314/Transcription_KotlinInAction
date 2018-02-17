@@ -4,31 +4,10 @@ import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 
 fun main(args: Array<String>) {
-    val html = createHTML().div(classes = "dropdown") {
-        dropdownMenu {
-            item("#", "Action")
-            item("#", "Another action")
-            divider()
-            dropdownHeader("Header")
-            item("#", "Separated link")
-        }
-    }
-
-    println(html)
+    val bavarianGreeter = Greeter("Servus")
+    // Greeterインスタンスを関数のように呼び出す
+    bavarianGreeter("Dmitry")
 }
-
-/*
-fun dropdownExample() = createHTML().dropdown {
-    dropdownButton { +"Dropdown" }
-    dropdownMenu {
-        item("#", "Action")
-        item("#", "Another action")
-        divider()
-        dropdownHeader("Header")
-        item("#", "Separated link")
-    }
-}
-*/
 
 fun buildDropdown() = createHTML().div(classes = "dropdown") {
     button(classes = "btn dropdown-toggle") {
