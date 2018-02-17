@@ -60,3 +60,5 @@ fun UL.dropdownHeader(text: String) = li {
 }
 
 fun DIV.dropdownMenu(block: UL.() -> Unit) = ul("dropdown-menu", block)
+
+// fun StringBuilder.dropdown(block: DIV.() -> Unit): String = div("dropdown", block)
