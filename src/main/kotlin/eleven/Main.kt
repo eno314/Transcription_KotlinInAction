@@ -4,9 +4,16 @@ import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 
 fun main(args: Array<String>) {
-    val bavarianGreeter = Greeter("Servus")
-    // Greeterインスタンスを関数のように呼び出す
-    bavarianGreeter("Dmitry")
+    val i1 = Issue("IDEA-154446", "IDEA", "Bug", "Major",
+            "Save setting failed")
+    val i2 = Issue("KT-12183", "Kotlin", "Feature", "Normal",
+            "Intention: convert several calls on the same receiver to with/apply")
+    val predicate = ImportantIssuesPredicate("IDEA")
+
+    // predicateをfilterに渡す
+    for (issue in listOf(i1, i2).filter(predicate)) {
+        println(issue.id)
+    }
 }
 
 fun buildDropdown() = createHTML().div(classes = "dropdown") {
