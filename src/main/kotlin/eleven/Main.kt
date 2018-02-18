@@ -2,12 +2,15 @@ package eleven
 
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
+import org.jetbrains.exposed.sql.select
+import org.jetbrains.exposed.sql.selectAll
 import java.time.LocalDate
 import java.time.Period
 
 fun main(args: Array<String>) {
-    println(1.days.ago)
-    println(1.days.fromNow)
+    val result = (Country innerJoin Customer)
+            .select { Country.name eq "USA" }
+    result.forEach { println(it[Customer.name]) }
 }
 
 val Int.days: Period
