@@ -2,6 +2,7 @@ package ten
 
 import ru.yole.jkid.deserialization.ClassInfo
 
+/*
 class ClassInfoCache {
     private val cacheData = mutableMapOf<KClass<*>, ClassInfo<*>>()
 
@@ -10,3 +11,4 @@ class ClassInfoCache {
         ClassInfo(cls)
     } as ClassInfo<T>
 }
+*/

@@ -6,6 +6,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.jvm.javaType
 
+/*
 class ObjectSeed<out T : Any>(targetClass: KClass<T>, val classInfoCache: ClassInfoCache) : Seed {
 
     // targetClassのインスタンスを生成するために必要な情報をキャッチする
@@ -41,3 +42,5 @@ class ObjectSeed<out T : Any>(targetClass: KClass<T>, val classInfoCache: ClassI
         valueArguments[param] = classInfo.deserializeConstructorArgument(param, value)
     }
 }
+
+*/
