@@ -2,13 +2,37 @@ package eleven
 
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
+import java.time.LocalDate
+import java.time.Period
 
 fun main(args: Array<String>) {
-    val dependencies = DependencyHandler()
-    dependencies.compile("org.jetbrains.kotlin:kotlin-stdlib:1.0.0")
+    println(1.days.ago)
+    println(1.days.fromNow)
+}
 
-    dependencies {
-        compile("org.jetbrains.kotlin:kotlin-reflect:1.0.0")
+val Int.days: Period
+        // thisは数値の定数を参照している
+    get() = Period.ofDays(this)
+
+val Period.ago: LocalDate
+        // 演算子構文をつかってLocalDate.minusを呼び出す
+    get() = LocalDate.now() - this
+
+val Period.fromNow: LocalDate
+        // 演算子構文を使ってLocalDate.plusを呼び出す
+    get() = LocalDate.now() + this
+
+infix fun <T> T.should(matcher: Matcher<T>) = matcher.test(this)
+
+interface Matcher<T> {
+    fun test(value: T)
+}
+
+class startWith(val prefix: String) : Matcher<String> {
+    override fun test(value: String) {
+        if (!value.startsWith(prefix)) {
+            throw AssertionError("String $value does not start with $prefix")
+        }
     }
 }
 
