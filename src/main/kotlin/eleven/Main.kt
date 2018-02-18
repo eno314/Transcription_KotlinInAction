@@ -4,15 +4,11 @@ import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 
 fun main(args: Array<String>) {
-    val i1 = Issue("IDEA-154446", "IDEA", "Bug", "Major",
-            "Save setting failed")
-    val i2 = Issue("KT-12183", "Kotlin", "Feature", "Normal",
-            "Intention: convert several calls on the same receiver to with/apply")
-    val predicate = ImportantIssuesPredicate("IDEA")
+    val dependencies = DependencyHandler()
+    dependencies.compile("org.jetbrains.kotlin:kotlin-stdlib:1.0.0")
 
-    // predicateをfilterに渡す
-    for (issue in listOf(i1, i2).filter(predicate)) {
-        println(issue.id)
+    dependencies {
+        compile("org.jetbrains.kotlin:kotlin-reflect:1.0.0")
     }
 }
 
